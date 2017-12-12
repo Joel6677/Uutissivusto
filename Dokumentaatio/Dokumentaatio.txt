@@ -1,0 +1,18 @@
+Kuvaus:
+Aiheena on uutissivu-sovellus. Käyttäjä katselee sovelluksessa luotuja uutisia ja voi itse luoda tai muokata niitä.
+
+Käyttöohje:
+Sivulla on navigointipalkissa linkit: Etusivu, Kuumat aiheet, Kategoriat sekä nappi uutisten luontiin ja muokkaamiseen.
+
+Ensiksi käyttäjä luo uutisen painamalla 'Uusi uutinen'-nappia. Tämän jälkeen käyttäjä syöttää kysytyt tiedot. Nyt käyttäjä voi klikata uutista ja katsella sitä.
+Klikkaamalla uutista, ilmestyy nappi 'Muokkaa uutista', jota painamalla käyttäjä voi muokata uutista. Muokkaa uutista painikkeessa on myös 'Poista'-nappi, jota painamalla uutinen poistuu.
+Etusivulla listataan 5 uusinta uutista sekä oikealla laidassa uutiset aikajärjestyksessä. Uutista klikkaamalla näkee uutisen tiedot, sekä oikealla suosituimmat sekä tuoreimmat uutiset.
+
+Käyttötapaukset: 
+1. Käyttäjä luo uutisen: Käyttäjä luo uutisen. Käyttäjä näkee uutisen etusivulla.
+2. Käyttäjä klikkaa uutista: Tämän jälkeen käyttäjä painaa 'Muokkaa uutista'-painiketta. Käyttäjä asettaa uudet arvot uutiselle.
+3. Käyttäjä klikkaa yläpalkista tiettyä kategoriaa: Käyttäjä näkee kategoriaan liittyvät uutiset. Käyttäjä klikkaa uutista ja tutkii sitä tarkemmin.
+
+Sovelluksen puutteet:
+Validaatioissa sekä testeissä puutteita.
+

@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="${newsItem.heading}"></title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <style>
+            .col-md-4{
+                background-color: #23edce;               
+            }             
+        </style>
+    </head>
+    <body>
+        <header th:replace="fragments/header :: header">
+            <p>linkit</p>
+        </header>
+
+        <div class="container-fluid">
+            <div class="col-md-8 border-right-0">
+                <h1 th:text="${newsItem.heading}">Otsikko</h1>
+                <img th:src="@{/images/{id}/content(id=${newsItem.id})}"/>
+
+                <h2 th:text="${newsItem.body}">teksti</h2><br/>
+
+                <div class="col-md-4">
+                    <div class="list-group">
+                        <h3>Kategoriat: </h3>
+                        <h4 class="list-group-item" th:each="category : ${newsItem.categories}" th:text="${category.name} + ' '"></h4>
+                        <h3>Kirjoittajat: </h3>
+                        <h4 class="list-group-item" th:each="writer : ${newsItem.writers}" th:text="${writer.name} + ' '"></h4><br/>
+
+                        <p>Updated <span th:text="${#temporals.format(newsItem.publishDate, 'dd.MM.yyyy HH:mm')}">aika</span></p><br/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="list-group">
+                    <h1>Suosituimmat</h1>
+                    <a class="list-group-item" th:each="item : ${hot}" th:href='@{/news/{id}(id=${item.id})}'>
+                        <h2 th:text="${item.heading}"></h2>
+                        <p th:text="${#temporals.format(item.publishDate)}"></p>
+                    </a>
+                </div>
+                <br/>
+                <div class="list-group">
+                    <h1>Tuoreimmat uutiset</h1>
+                    <a class="list-group-item" th:each="item : ${latest}" th:href='@{/news/{id}(id=${item.id})}'>
+                        <h2 th:text="${item.heading}"></h2>
+                        <p th:text="${#temporals.format(item.publishDate)}"></p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

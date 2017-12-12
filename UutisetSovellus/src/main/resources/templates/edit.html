@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Muokkaa uutista</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <header th:replace="fragments/header :: header">
+            <p>linkit</p>
+        </header>
+
+        <div class="container-fluid">
+            <h1>Muokkaa</h1>
+            <form th:action="@{/news/{id}/edit(id=${newsItem.id})}" method="POST" enctype="multipart/form-data">
+                <input type="hidden" th:value="${newsItem.id}" name="id"/>
+                
+                <div class="form-group">
+                    <label>Otsikko:</label>
+                    <input th:value="${newsItem.heading}" name="heading" placeholder="Otsikko" class="form-control"/>
+                </div>
+                
+                <div class="form-group">
+                    <label>Ingressi:</label>
+                    <input th:value="${newsItem.lead}" name="lead" placeholder="Ingressi" class="form-control"/>
+                </div>
+                
+                <div class="form-group">
+                    <label>Teksti:</label><br/>
+                    <textarea class="form-control" rows="5" th:text="${newsItem.body}" name="body" placeholder="Teksti"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Julkaisupäivä:</label>
+                    <input th:value="${newsItem.publishDate}" type="datetime-local" name="publishdate" class="btn btn-default"/>
+                </div>
+                
+                <div class="form-group">
+                    <label>Kuva:</label>
+                    <input type="file" name="file"/>
+                </div>
+                <input type="submit" class="btn btn-default" value="Muokkaa"/>
+            </form>
+        </div>
+           
+        <div class="container-fluid">
+            <h1>Poista uutinen</h1>
+            <form class="destroy-form" th:action="@{/news/{id}/delete(id=${newsItem.id})}" method="post" data-confirm="Oletko varma?" style="display: inline-block;">
+                <button type="submit" class="btn btn-danger">Poista</button>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Header</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>       
+    </head>
+    <body>
+
+        <header th:fragment="header">
+
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">    
+                    <div class="navbar-header">
+                        <a class="navbar-brand" th:href="@{/}">Home</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li><a th:href="@{/hot}">Kuumat</a></li>
+                        <li th:each="category : ${categories}">
+                            <a th:href="@{/{name}(name=${category.name.toLowerCase()})}" th:text="${category.name}"></a>
+                        </li> 
+
+                    </ul>   
+                
+                        <form class="navbar-form navbar-left" th:action="@{/news/new}">
+                            <button type="submit" class="btn btn-danger">Uusi uutinen</button>
+                        </form>
+
+                        <form class="navbar-form navbar-left" th:if="${newsItem != null}" th:action="@{/news/{id}/edit(id=${newsItem.id})}">
+                            <button type="submit" class="btn btn-danger">Muokkaa uutista</button>
+                        </form>
+
+                </div>
+            </nav>
+
+        </header>
+
+    </body>
+</html>
