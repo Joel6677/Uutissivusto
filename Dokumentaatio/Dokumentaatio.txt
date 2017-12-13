@@ -14,5 +14,5 @@ Käyttötapaukset:
 3. Käyttäjä klikkaa yläpalkista tiettyä kategoriaa: Käyttäjä näkee kategoriaan liittyvät uutiset. Käyttäjä klikkaa uutista ja tutkii sitä tarkemmin.
 
 Sovelluksen puutteet:
-Validaatioissa sekä testeissä puutteita.
+Validaatioissa sekä testeissä puutteita. Heroku puutteellinen. 
 
