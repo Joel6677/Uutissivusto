@@ -1,9 +1,0 @@
-wad\service\NewsService.class
-wad\NewsSiteApplication.class
-wad\repository\NewsRepository.class
-wad\domain\NewsItem.class
-wad\domain\Category.class
-wad\domain\Writer.class
-wad\repository\CategoryRepository.class
-wad\controller\NewsController.class
-wad\repository\WriterRepository.class
